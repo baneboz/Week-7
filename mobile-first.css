@@ -55,22 +55,41 @@ article img {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
-
     header,
     ul {
         display: flex;
         flex-flow: row wrap;
+        align-items: center;
     }
-    ul {
+    nav {
+        margin-left: auto;
+    }
+    nav ul {
         justify-content: flex-end;
+        border: none;
+    }
+    nav a {
+        color: #3B71CA;
+        display: inline-block;
+        padding: 15px;
+        border: none;
+    }
+    .active {
+        border-radius: 5px;
+        font-weight: normal;
     }
     .banner {
         order: 3;
+        flex-basis: 100%;
+        padding: 20px;
     }
     article {
         display: flex;
-
     }
+    article p {
+        padding-left: 10px;
+    }
+
 }
 
 /* Large devices (desktops, 992px and up) */
