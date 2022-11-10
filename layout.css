@@ -1,0 +1,65 @@
+/* fixed layout */
+/*
+body {
+    width: 960px;  
+    margin: 0 auto;
+}
+header {
+    padding: 40px 20px;
+}
+header img {
+    float: left;
+    border-radius: 50%;
+}
+.my-title {
+    padding-left: 30px;
+    float: left;
+}
+.my-title h1 {
+    margin: 0;
+}
+aside {
+    clear: both;
+    float: left;
+    width: 400px;
+    padding-right: 20px;
+}
+main {
+    float: right;
+    width: 500px;
+    padding-left: 30px;
+    border-left: 2px solid black;
+}
+*/
+
+/* liquid layout */
+
+body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+header {
+    padding: 40px 20px;
+}
+header img {
+    float: left;
+    border-radius: 50%;
+}
+.my-title {
+    padding-left: 30px;
+    float: left;
+}
+.my-title h1 {
+    margin: 0;
+}
+aside {
+    clear: both;
+    float: left;
+    width: 40%;
+}
+main {
+    float: right;
+    width: 57%;
+    padding-left: 30px;
+    border-left: 2px solid black;
+}
