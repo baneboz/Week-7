@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIT Week 7 | JS Functions</title>
+  </head>
+  <body>
+    <h1>BIT Week 7</h1>
+    <h2>JS Fuctions</h2>
+    <p>Results in console</p>
+  </body>
+  <script>
+    // 1. Write a function that rotates a list by k elements.
+    // For example [1,2,3,4,5,6] rotated by two becomes [3,4,5,6,1,2]
+    function rotateByK(arr, k) {
+      var result = [];
+      var j = 0;
+
+      for (var i = k; i < arr.length; i++) {
+        result[j] = arr[i];
+        j++;
+      }
+
+      for (var l = k - 1; l >= 0; l--) {
+        result[j] = arr[l];
+        j++;
+      }
+      return result;
+    }
+    console.log(rotateByK([1, 2, 3, 4, 5, 6], 3));
+
+    // 2. Write a function that takes a number and returns array of its digits.
+    function sumDigits(num) {
+      var sum = 0;
+      var numStr = "" + num;
+
+      for (var i = 0; i < numStr.length; i++) {
+        sum += +numStr[i];
+      }
+
+      return sum;
+    }
+
+    console.log(sumDigits(1234));
+
+    // 3. Write a program that prints a multiplication table for numbers up to 12.
+    function printMultiTable() {
+      var result = "";
+
+      for (var i = 1; i <= 12; i++) {
+        for (var j = 1; j <= 12; j++) {
+          result += i * j + "  ";
+        }
+        result += "\n";
+      }
+      return result;
+    }
+    console.log(printMultiTable());
+
+    // 4. Write a function to find the maximum element in array of numbers.
+    // Filter out all non-number elements.
+    function getMax(arr) {
+      var numArr = arr.filter(function (el) {
+        return typeof el === "number";
+      });
+
+      var max = numArr.reduce((a, b) => Math.max(a, b), -Infinity);
+      return max;
+    }
+
+    console.log(getMax([22, 11, 55, true, "zero"]));
+
+    // 5. Napisati funkciju koja vraca najveci I najmanji element niza.
+    // Rezultat prikazati kao niz.
+    function getMinAndMax(arr) {
+      var min = arr[0];
+      var max = arr[0];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+          min = arr[i];
+        }
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      return [min, max];
+    }
+    console.log(getMinAndMax([22, 11, 55, 66, 77, 25, 33]));
+
+    // 6. Napisati funkciju koja vraća medijanu niza.
+    // Medijana je “srednji” broj niza kada su brojevi poređani od najmanjeg do najvećeg ako niz ima neparan broj elemenata.
+    // Ako ima paran broj onda se medijana definiše kao aritmetička sredina dve srednje vrednosti.
+    function getMed(arr) {
+      var result;
+      arr.sort(function (a, b) {
+        return a - b;
+      });
+
+      if (arr.length % 2 !== 0) {
+        result = arr[Math.round(arr.length / 2)];
+      } else {
+        result =
+          (arr[Math.round(arr.length / 2)] +
+            arr[Math.round(arr.length / 2) + 1]) /
+          2;
+      }
+      return result;
+    }
+    console.log(getMed([22, 11, 55, 66, 77, 25, 33]));
+
+    // 7. Write a function to find and return the first, middle and last element of an array
+    // if the array has odd number of elements.
+    // If number of elements is even, return just the first and the last.
+    // In other cases (empty array), input array should be returned.
+    function findAndReturn(arr) {
+      var result = [];
+
+      if (arr.length === 0) {
+        return arr;
+      } else {
+        if (arr.length % 2 !== 0) {
+          result[0] = arr[0];
+          result[1] = arr[Math.round(arr.length / 2)];
+          result[2] = arr[arr.length - 1];
+        } else {
+          result[0] = arr[0];
+          result[1] = arr[arr.length - 1];
+        }
+
+        return result;
+      }
+    }
+    console.log(findAndReturn([22, 11, 55, 66, 77, 25, 100]));
+
+    // 8. Write a function to find the average of N elements.
+    // Make the function flexible to receive dynamic number or parameters.
+    function calcAvg(arr) {
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      var avg = (sum / arr.length).toFixed(2);
+      return avg;
+    }
+    console.log(calcAvg([22, 11, 55, 66, 77, 25, 100]));
+
+    // 9. Write a function to find all the numbers greater than the average.
+    function gtAvg(arr) {
+      var sum = 0;
+      var result = [];
+      var resultInd = 0;
+
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+
+      var avg = sum / arr.length;
+
+      for (var j = 0; j < arr.length; j++) {
+        if (arr[j] > avg) {
+          result[resultInd] = arr[j];
+          resultInd++;
+        }
+      }
+
+      return result;
+    }
+    console.log(gtAvg([22, 11, 55, 66, 77, 25, 30]));
+
+    // 10. The body mass index (BMI) is the ratio of the weight of a person (in kilograms) to the
+    // square of the height (in meters). Write a function that takes two parameters, weight and
+    // height, computes the BMI, and prints the corresponding BMI category:
+    // - Starvation: less than 15
+    // - Anorexic: less than 17.5
+    // - Underweight: less than 18.5
+    // - Ideal: greater than or equal to 18.5 but less than 25
+    // - Overweight: greater than or equal to 25 but less than 30
+    // - Obese: greater than or equal to 30 but less than 40
+    // - Morbidly obese: greater than or equal to 40
+    function getBMICat(weight, height) {
+      var BMI = +(weight / (height * height)).toFixed(2);
+      var bmiCat = "";
+      switch (true) {
+        case BMI < 15:
+          bmiCat = "Starvation";
+          break;
+        case BMI < 17:
+          bmiCat = "Anorexic";
+          break;
+        case BMI < 18.5:
+          bmiCat = "Underweight";
+          break;
+        case BMI < 25:
+          bmiCat = "Ideal";
+          break;
+        case BMI < 30:
+          bmiCat = "Overweight";
+          break;
+        case BMI < 40:
+          bmiCat = "Obese";
+          break;
+        case BMI > 40:
+          bmiCat = "Morbidly obese";
+          break;
+      }
+      return bmiCat;
+    }
+    console.log(getBMICat(80, 1.8));
+
+    // 11. Write a function that takes a list of strings and prints them
+    // one per line, in a rectangular frame.:
+    // For example the list ["Hello", "World", "in", "a", "frame"] gets printed as:
+    // *********
+    // * Hello *
+    // * World *
+    // * in    *
+    // * a     *
+    // * frame *
+    // *********
+    function printInFrame(arr) {
+      var result = "";
+      var stars = "";
+      var mid = "";
+
+      var length = arr[0].length;
+
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].length > length) {
+          length = arr[i].length;
+        }
+
+        mid += "* " + arr[i] + " *" + "\n";
+      }
+
+      for (var j = 0; j < length + 4; j++) {
+        stars += "*";
+      }
+
+      result = stars + "\n" + mid + "\n" + stars;
+
+      return result;
+    }
+    console.log(printInFrame(["Hello", "World", "in", "a", "frame"]));
+  </script>
+</html>
