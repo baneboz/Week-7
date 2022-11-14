@@ -32,20 +32,18 @@
     console.log(rotateByK([1, 2, 3, 4, 5, 6], 3));
 
     // 2. Write a function that takes a number and returns array of its digits.
-    function sumDigits(num) {
-      var sum = 0;
+    function arrDigits(num) {
+      var arr = [];
+
       var numStr = "" + num;
 
       for (var i = 0; i < numStr.length; i++) {
-        sum += +numStr[i];
+        arr[i] = +numStr[i];
       }
-    // KOMENTAR: Mislim da nisi dobro procitao zadatak.
-  // Ne trazi se suma, nego za tvoj uneti broj 1234 da dobijem array [1, 2, 3, 4] kao rezultat.
-      
-      return sum;
+      return arr;
     }
 
-    console.log(sumDigits(1234));
+    console.log(arrDigits(1234));
 
     // 3. Write a program that prints a multiplication table for numbers up to 12.
     function printMultiTable() {
@@ -243,7 +241,7 @@
       result = stars + "\n" + mid + "\n" + stars;
 
       return result;
-      
+
       // KOMENTAR: U pravu si, ovde imas jos malo posla da doradis.
     }
     console.log(printInFrame(["Hello", "World", "in", "a", "frame"]));
