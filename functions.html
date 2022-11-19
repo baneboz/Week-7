@@ -293,8 +293,19 @@
     // Call that function three times, passing in different values each time.
     // Bonus: Accept floating point values for amount per day, and round the result to a round number.
     function calculateSupply(age, amount) {
-      var msg = "You will need NN to last you until the ripe old age of X";
+      var maxAge = 101;
+
+      var result = Math.floor((maxAge - age) * 365 * amount);
+
+      var msg =
+        "You will need " +
+        result +
+        " to last you until the ripe old age of " +
+        maxAge;
+
+      return msg;
     }
+    console.log(calculateSupply(35, 2));
 
     // 4. Create a function called celsiusToFahrenheit:
     // - Store a celsius temperature into a variable.
@@ -304,7 +315,7 @@
     // - Convert it to celsius and output "NN°F is NN°C."
     // *NN is actual temperature you need to convert
     function celsiusToFahrenheit(tempC) {
-      var tempF = tempC * 1.8 + 32;
+      var tempF = Math.floor(tempC * 1.8 + 32);
 
       var msg = tempC + "°C is " + tempF + "°F";
 
@@ -316,7 +327,7 @@
     console.log(celsiusToFahrenheit(30));
 
     function fahrenheitToCelsius(tempF) {
-      var tempC = (tempF - 32) * 0.5556;
+      var tempC = Math.floor((tempF - 32) * 0.5556);
 
       var msg = tempF + "°F is " + tempC + "°C";
 
@@ -348,6 +359,27 @@
     // Examples:
     // diamondArrays(1) ➞ [1],
     // diamondArrays(2) ➞ [1, 2, 2, 1]
+    // diamondArrays(3) ➞ [1, 2, 2, 3, 3, 3, 2, 2, 1]
     // diamondArrays(5) ➞ [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 2, 2, 1]
+
+    function printDiamondArrays(num) {
+      var result = [];
+
+      for (var i = 1; i <= num; i++) {
+        for (var j = 0; j < i; j++) {
+          result.push(i);
+        }
+      }
+
+      for (var k = num - 1; k > 0; k--) {
+        for (var l = 0; l < k; l++) {
+          result.push(k);
+        }
+      }
+
+      return result;
+    }
+
+    console.log(printDiamondArrays(5));
   </script>
 </html>
